@@ -333,7 +333,9 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
             return;
         }
         synchronized(instance) {
-            promise.resolve(instance.getPeople().getPushRegistrationId());
+            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
+
+            // promise.resolve(instance.getPeople().getPushRegistrationId());
         }
     }
 
@@ -342,7 +344,9 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
     public void setPushRegistrationId(final String token, final String apiToken, Promise promise) {
         final MixpanelAPI instance = getInstance(apiToken);
         synchronized(instance) {
-            instance.getPeople().setPushRegistrationId(token);
+            /* Mixpanel no longer sends push notifications so there is no use for setting push tokens, */
+
+            // instance.getPeople().setPushRegistrationId(token);
         }
         promise.resolve(null);
     }
@@ -353,9 +357,12 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
         final MixpanelAPI instance = getInstance(apiToken);
         synchronized(instance) {
             if (token != null) {
-                instance.getPeople().clearPushRegistrationId(token);
+            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
+                // instance.getPeople().clearPushRegistrationId(token);
             } else {
-                instance.getPeople().clearPushRegistrationId();
+            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
+
+                // instance.getPeople().clearPushRegistrationId();
             }
         }
         promise.resolve(null);
@@ -486,7 +493,8 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
             MixpanelAPI.People people = instance.getPeople();
 
             if(activity != null && people != null){
-                people.showNotificationIfAvailable(activity);
+            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
+                // people.showNotificationIfAvailable(activity);
             }
         }
         promise.resolve(null);
