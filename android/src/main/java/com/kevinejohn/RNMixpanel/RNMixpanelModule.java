@@ -325,48 +325,53 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
     }
 
     // Android only
-    @ReactMethod
-    public void getPushRegistrationId(final String apiToken, Promise promise) {
-        final MixpanelAPI instance = getInstance(apiToken);
-        if (instance == null) {
-            promise.reject(new Throwable("no mixpanel instance available."));
-            return;
-        }
-        synchronized(instance) {
-            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
-
-            // promise.resolve(instance.getPeople().getPushRegistrationId());
-        }
-    }
-
-    // Android only
-    @ReactMethod
-    public void setPushRegistrationId(final String token, final String apiToken, Promise promise) {
-        final MixpanelAPI instance = getInstance(apiToken);
-        synchronized(instance) {
-            /* Mixpanel no longer sends push notifications so there is no use for setting push tokens, */
-
-            // instance.getPeople().setPushRegistrationId(token);
-        }
-        promise.resolve(null);
-    }
+    /**
+     * @Deprecated
+     * Mixpanel no longer sends push notifications so there is no use for getting push tokens
+     */
+//    @ReactMethod
+//    public void getPushRegistrationId(final String apiToken, Promise promise) {
+//        final MixpanelAPI instance = getInstance(apiToken);
+//        if (instance == null) {
+//            promise.reject(new Throwable("no mixpanel instance available."));
+//            return;
+//        }
+//        synchronized(instance) {
+//            promise.resolve(instance.getPeople().getPushRegistrationId());
+//        }
+//    }
 
     // Android only
-    @ReactMethod
-    public void clearPushRegistrationId(final String token, final String apiToken, Promise promise) {
-        final MixpanelAPI instance = getInstance(apiToken);
-        synchronized(instance) {
-            if (token != null) {
-            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
-                // instance.getPeople().clearPushRegistrationId(token);
-            } else {
-            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
+    /**
+     * @Deprecated
+     * Mixpanel no longer sends push notifications so there is no use for setting push tokens
+     */
+//    @ReactMethod
+//    public void setPushRegistrationId(final String token, final String apiToken, Promise promise) {
+//        final MixpanelAPI instance = getInstance(apiToken);
+//        synchronized(instance) {
+//             instance.getPeople().setPushRegistrationId(token);
+//        }
+//        promise.resolve(null);
+//    }
 
-                // instance.getPeople().clearPushRegistrationId();
-            }
-        }
-        promise.resolve(null);
-    }
+    // Android only
+    /**
+     * @Deprecated
+     * Mixpanel no longer sends push notifications so there is no use for getting push tokens
+     */
+//    @ReactMethod
+//    public void clearPushRegistrationId(final String token, final String apiToken, Promise promise) {
+//        final MixpanelAPI instance = getInstance(apiToken);
+//        synchronized(instance) {
+//            if (token != null) {
+//                 instance.getPeople().clearPushRegistrationId(token);
+//            } else {
+//                 instance.getPeople().clearPushRegistrationId();
+//            }
+//        }
+//        promise.resolve(null);
+//    }
 
     @ReactMethod
     public void trackCharge(final double charge, final String apiToken, Promise promise) {
@@ -481,24 +486,27 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
         }
     }
 
-    @ReactMethod
-    public void showNotificationIfAvailable(final String apiToken, Promise promise) {
-        final MixpanelAPI instance = getInstance(apiToken);
-        if (instance == null) {
-            promise.reject(new Throwable("no mixpanel instance available."));
-            return;
-        }
-        synchronized(instance) {
-            Activity activity = this.getCurrentActivity();
-            MixpanelAPI.People people = instance.getPeople();
-
-            if(activity != null && people != null){
-            /* Mixpanel no longer sends push notifications so there is no use for getting push tokens, */
-                // people.showNotificationIfAvailable(activity);
-            }
-        }
-        promise.resolve(null);
-    }
+    /**
+     * @Deprecated
+     * Mixpanel no longer sends push notifications so there is no use for getting push tokens
+     */
+//    @ReactMethod
+//    public void showNotificationIfAvailable(final String apiToken, Promise promise) {
+//        final MixpanelAPI instance = getInstance(apiToken);
+//        if (instance == null) {
+//            promise.reject(new Throwable("no mixpanel instance available."));
+//            return;
+//        }
+//        synchronized(instance) {
+//            Activity activity = this.getCurrentActivity();
+//            MixpanelAPI.People people = instance.getPeople();
+//
+//            if(activity != null && people != null){
+//                 people.showNotificationIfAvailable(activity);
+//            }
+//        }
+//        promise.resolve(null);
+//    }
 
     @ReactMethod
     public void optOutTracking(final String apiToken, Promise promise) {
